@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/js-BMI計算機.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <h2 class="title"> BMI計算機 </h1>
+                <div class="text">
+                    <p> 身體質量指數 (Body Mass Index，簡稱BMI)是公認用來估計肥胖程度的方法 </p>
+                    <p> BMI = 體重(公斤) / 身高的平方(公尺) </p>
+                </div>
+                <div class="height-weight">
+                    <div class="height">
+                        我的身高：
+                        <input id="height-input" type="number">
+                        <label for="height-input"></label>
+                        公分
+                    </div>
+                    <div class="weight">
+                        我的體重：
+                        <input id="weight-input" type="number">
+                        <label for="weight-input"></label>
+                        公斤
+                    </div>
+                    <button id="calculate-btn" type="button"> 計算 </button>
+                    <button id="reset-btn" type="button"> 重新填寫 </button>
+                </div>
+                <div id="result">
+                    <p id="result-bmi"></p>
+                    <p id="result-value"></p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th colspan="3"> BMI值 </th>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td> 男性 </td>
+                        <td> 女性 </td>
+                    </tr>
+                    <tr>
+                        <td> 體重過輕 </td>
+                        <td>
+                            < 20 </td>
+                        <td>
+                            < 19 </td>
+                    </tr>
+                    <td> 正常範圍 </td>
+                    <td> 20-25 </td>
+                    <td> 19-25 </td>
+                    </tr>
+                    </tr>
+                    <td> 體重過重 </td>
+                    <td> 25-30 </td>
+                    <td> 25-30 </td>
+                    </tr>
+                    </tr>
+                    <td> 肥胖 </td>
+                    <td> 30-40 </td>
+                    <td> 30-40 </td>
+                    </tr>
+                    </tr>
+                    <td> 病態肥胖 </td>
+                    <td> > 40 </td>
+                    <td> > 40 </td>
+                    </tr>
+                </table>
+        </div>
+    </div>
+
+    <script>
+        const height = document.querySelector('#height-input');
+        const weight = document.querySelector('#weight-input');
+        const resultBmi = document.querySelector('#result-bmi');
+        const resultValue = document.querySelector('#result-value');
+
+        const calculateBtn = document.querySelector('#calculate-btn');
+        const resetBtn = document.querySelector('#reset-btn');
+
+        calculateBtn.addEventListener('click', function () {
+            const heightValue = Number(height.value);
+            const weightValue = Number(weight.value);
+
+            const bmi = (weightValue / (heightValue / 100) ** 2).toFixed(2);
+            resultBmi.textContent = bmi;
+
+            if (height.value === '' && weight.value === '') {
+                alert('還沒輸入身高、體重!!');
+                resultBmi.textContent = '';
+            } else if (height.value === '') {
+                alert('還沒輸入身高');
+                resultBmi.textContent = '';
+            } else if (weight.value === '') {
+                alert('還沒輸入體重');
+                resultBmi.textContent = '';
+            } else {
+                if (bmi < 20) {
+                    resultValue.textContent = '體重過輕';
+                } else if (bmi < 25) {
+                    resultValue.textContent = '正常範圍';
+                } else if (bmi < 30) {
+                    resultValue.textContent = '體重過重';
+                } else if (bmi < 40) {
+                    resultValue.textContent = '肥胖';
+                } else {
+                    resultValue.textContent = '病態肥胖';
+                }
+            }
+        });
+
+        resetBtn.addEventListener('click', function () {
+            height.value = '';
+            weight.value = '';
+            resultBmi.textContent = '';
+            resultValue.textContent = '';
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: darkcyan;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .content {
+  width: 80%;
+  height: 80%;
+  background-color: darkgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 10px black;
+}
+.container .content .title {
+  margin: 10px auto 10px;
+}
+.container .content .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .content .text p {
+  font-size: 16px;
+}
+.container .content .height-weight {
+  display: flex;
+  flex-direction: row;
+}
+.container .content .height-weight .height,
+.container .content .height-weight .weight {
+  margin: 0 20px 0;
+}
+.container .content .height-weight button {
+  margin: 0 10px 0;
+}
+.container .content #result {
+  height: 30px;
+  width: 50%;
+  background-color: white;
+  margin: 50px 0;
+  padding: 10px;
+  display: flex;
+}
+.container .content #result p {
+  width: 50%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+.container .content table {
+  width: 50%;
+  background-color: white;
+  text-align: center;
+  border: 1px solid black;
+}
+.container .content table th,
+.container .content table td {
+  border: 1px solid black;
+}/*# sourceMappingURL=js-BMI計算機.css.map */
